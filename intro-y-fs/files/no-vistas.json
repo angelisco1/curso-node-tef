@@ -1,0 +1,12 @@
+[
+  {
+    "id": 2,
+    "titulo": "Serie 2",
+    "vista": false
+  },
+  {
+    "id": 3,
+    "titulo": "Serie 3",
+    "vista": false
+  }
+]

@@ -1,0 +1,11 @@
+ERROR - 3/10/2022, 12:34:41:: Error! ya la has liado
+WARNING - 3/10/2022, 12:34:43:: Cuidadoooo!
+ERROR - 3/10/2022, 12:34:45:: Error! ya la has liado
+INFO - 3/10/2022, 12:34:47:: Mensaje de información
+ERROR - 3/10/2022, 12:34:49:: Error! ya la has liado
+WARNING - 3/10/2022, 12:34:51:: Cuidadoooo!
+INFO - 3/10/2022, 12:37:59:: Mensaje de información
+ERROR - 3/10/2022, 12:38:01:: Error! ya la has liado
+ERROR - 3/10/2022, 12:38:03:: Error! ya la has liado
+WARNING - 3/10/2022, 12:38:05:: Cuidadoooo!
+WARNING - 3/10/2022, 12:38:07:: Cuidadoooo!
