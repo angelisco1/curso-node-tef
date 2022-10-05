@@ -1,0 +1,13 @@
+<%- include('partials/head.ejs') %>
+
+  <title>Vendehumo (<%= vendehumo.id %>)</title>
+</head>
+<body>
+  <h1><%= vendehumo.nombre %></h1>
+
+  <p>Categoria: <%= vendehumo.categoria %></p>
+  <button><%= vendehumo.numVotos %></button>
+
+  <a href="/vendehumos">Volver al inicio</a>
+
+<%- include('partials/footer.ejs') %>

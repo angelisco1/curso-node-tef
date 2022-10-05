@@ -1,0 +1,11 @@
+extends layouts/layout.pug
+
+block title
+  title Vendehumo (#{vendehumo.id})
+
+block pagina
+  h1 #{vendehumo.nombre}
+
+  p Categoria: #{vendehumo.categoria}
+  button #{vendehumo.numVotos}
+  a(href='/vendehumos') Volver al inicio

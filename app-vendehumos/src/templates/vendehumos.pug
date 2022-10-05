@@ -1,0 +1,13 @@
+extends layouts/layout.pug
+block title
+  title Vendehumos
+
+block pagina
+  h1 Listado vendehumos (PUG)
+
+  each vendehumo in listaVendehumos
+    div
+      p #{vendehumo.nombre}
+      p Categoria: #{vendehumo.categoria}
+      button #{vendehumo.numVotos}
+      a(href='/vendehumos/' + vendehumo.id) + Info

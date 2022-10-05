@@ -1,0 +1,25 @@
+<%- include('partials/head.ejs') %>
+  <title>Vendehumo (<%= vendehumo.id %>)</title>
+</head>
+<body>
+
+  <h1>Nuevo vendehumo</h1>
+
+  <form action="/vendehumos" method="post">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text">
+    </div>
+    <div>
+      <label for="categoria">Categoria:</label>
+      <select name="categoria" id="categoria">
+        <option value="crypto">Criptomonedas</option>
+        <option value="trading">Trading</option>
+        <option value="marketing">Marketing</option>
+        <option value="desarrollo personal">Desarrollo personal</option>
+      </select>
+    </div>
+    <button type="submit">Guardar</button>
+  </form>
+
+<%- include('partials/footer.ejs') %>

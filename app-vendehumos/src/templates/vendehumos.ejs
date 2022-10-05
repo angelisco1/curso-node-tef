@@ -1,0 +1,17 @@
+<%- include('partials/head.ejs') %>
+
+  <title>Vendehumos</title>
+</head>
+<body>
+  <h1>Listado vendehumos (EJS)</h1>
+
+  <% for (let vendehumos of listaVendehumos) { %>
+    <div>
+      <p><%= vendehumos.nombre %></p>
+      <p>Categoria: <%= vendehumos.categoria %></p>
+      <button><%= vendehumos.numVotos %></button>
+      <a href="/vendehumos/<%= vendehumos.id %>">+ Info</a>
+    </div>
+  <% } %>
+
+<%- include('partials/footer.ejs') %>
