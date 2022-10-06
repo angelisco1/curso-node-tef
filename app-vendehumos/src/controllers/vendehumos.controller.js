@@ -18,33 +18,52 @@ const VendehumosService = require('../services/vendehumos.service')
 
 
 class VendehumosController {
+  constructor({ vendehumosService }) {
+    this.vendehumosService = vendehumosService
+  }
 
-  static async getVendehumos(req, res) {
-    const vendehumos = await VendehumosService.getAllVendehumos()
+  async getVendehumos(req, res) {
+    // const vendehumos = await VendehumosService.getAllVendehumos()
+    const vendehumos = await this.vendehumosService.getAllVendehumos()
 
     res.render('vendehumos', {
       listaVendehumos: vendehumos
     })
   }
 
-  static async getVendehumo(req, res) {
+  async getVendehumo(req, res, next) {
     const { vendehumosId } = req.params
-    // const vendehumo = vendehumos.find(v => v.id === vendehumosId)
-    const vendehumo = await VendehumosService.getVendehumo(vendehumosId)
-    res.render('vendehumo', {
-      vendehumo
-    })
+    try {
+      // const vendehumo = vendehumos.find(v => v.id === vendehumosId)
+      const vendehumo = await this.vendehumosService.getVendehumo(vendehumosId)
+      res.render('vendehumo', {
+        vendehumo
+      })
+    } catch (err) {
+      next(err)
+    }
   }
 
-  static async postVendehumos(req, res) {
+  getFormularioVendehumo(req, res) {
+    res.render('formulario-vendehumo')
+  }
+
+  async postVendehumos(req, res, next) {
     const vendehumo = req.body
-    console.log(vendehumo)
-    await VendehumosService.createVendehumo(vendehumo)
-    res.redirect('/vendehumos')
+    try {
+      console.log(vendehumo)
+      await this.vendehumosService.createVendehumo(vendehumo)
+      res.redirect('/vendehumos')
+    } catch (err) {
+      next(err)
+    }
   }
 
-  static patchVotosVendehumo(req, res) {
-
+  async patchVotosVendehumo(req, res) {
+    const { numVotos } = req.body
+    const { vendehumosId } = req.params
+    await this.vendehumosService.updateVotosVendehumos(vendehumosId, numVotos)
+    res.redirect('/vendehumos')
   }
 
 }

@@ -1,0 +1,24 @@
+<%- include('partials/head.ejs') %>
+  <title>Register</title>
+</head>
+<body>
+
+  <h1>Register</h1>
+
+  <form action="/register" method="post">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" name="username">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="text" name="email">
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" name="password">
+    </div>
+    <button type="submit">Sign Up</button>
+  </form>
+
+<%- include('partials/footer.ejs') %>

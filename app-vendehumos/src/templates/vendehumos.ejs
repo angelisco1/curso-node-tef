@@ -4,12 +4,17 @@
 </head>
 <body>
   <h1>Listado vendehumos (EJS)</h1>
+  <a href="/nuevo-vendehumo">Nuevo vendehumo</a>
 
   <% for (let vendehumos of listaVendehumos) { %>
     <div>
       <p><%= vendehumos.nombre %></p>
       <p>Categoria: <%= vendehumos.categoria %></p>
-      <button><%= vendehumos.numVotos %></button>
+      <form action="/update-votos-vendehumos/<%= vendehumos.id %>" method="post">
+        <input type="text" hidden name="numVotos" value="<%= Number(vendehumos.numVotos)+1 %>">
+        <button type="submit"><%= vendehumos.numVotos %></button>
+      </form>
+
       <a href="/vendehumos/<%= vendehumos.id %>">+ Info</a>
     </div>
   <% } %>

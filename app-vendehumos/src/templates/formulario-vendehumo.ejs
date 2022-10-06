@@ -1,5 +1,5 @@
 <%- include('partials/head.ejs') %>
-  <title>Vendehumo (<%= vendehumo.id %>)</title>
+  <title>Nuevo Vendehumo</title>
 </head>
 <body>
 
@@ -8,7 +8,7 @@
   <form action="/vendehumos" method="post">
     <div>
       <label for="nombre">Nombre:</label>
-      <input type="text">
+      <input type="text" name="nombre">
     </div>
     <div>
       <label for="categoria">Categoria:</label>
