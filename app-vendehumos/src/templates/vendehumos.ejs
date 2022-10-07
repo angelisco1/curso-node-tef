@@ -6,6 +6,10 @@
   <h1>Listado vendehumos (EJS)</h1>
   <a href="/nuevo-vendehumo">Nuevo vendehumo</a>
 
+  <form action="/logout" method="post">
+    <button type="submit">Logout</button>
+  </form>
+
   <% for (let vendehumos of listaVendehumos) { %>
     <div>
       <p><%= vendehumos.nombre %></p>

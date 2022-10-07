@@ -1,9 +1,18 @@
-import { useState } from "react"
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Link, useParams } from "react-router-dom"
 
 const InfoVendehumo = () => {
   const params = useParams()
   const [vendehumo, setVendehumo] = useState({})
+  console.log({params})
+  useEffect(() => {
+    fetch('http://localhost:3000/vendehumos/' + params.vendehumoId)
+      .then(resp => resp.json())
+      .then(data => {
+        console.log(data)
+        setVendehumo(data.vendehumo)
+      })
+  }, [])
 
   return (
     <div>
@@ -11,7 +20,7 @@ const InfoVendehumo = () => {
 
       <p>Categoria: {vendehumo.categoria}</p>
       <button>{vendehumo.numVotos}</button>
-      <a href="/vendehumos">Volver al inicio</a>
+      <Link to="/vendehumos">Volver al inicio</Link>
     </div>
   )
 }

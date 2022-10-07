@@ -1,11 +1,25 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const login = (e) => {
     e.preventDefault()
+    fetch('http://localhost:3000/login', {
+      method: 'POST',
+      body: JSON.stringify({email, password}),
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        localStorage.setItem('token', data.jwt)
+        navigate('/vendehumos')
+      })
   }
 
   return (

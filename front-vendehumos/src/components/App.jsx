@@ -8,18 +8,21 @@ import Register from "./Register"
 import Vendehumos from "./Vendehumos"
 
 const App = () => {
+
+  const isLoggedIn = localStorage.getItem('token')
+
   return (
     <div>
       <Link to="/login">Login</Link>
       <Link to="/register">Register</Link>
       <Link to="/vendehumos">Inicio</Link>
-      <Link to="/nuevo-vendehumo">Nuevo vendehumo</Link>
+      {isLoggedIn && <Link to="/nuevo-vendehumo">Nuevo vendehumo</Link>}
 
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/vendehumos" element={<Vendehumos />} />
-        <Route path="/nuevo-vendehumo" element={<NuevoVendehumo />} />
+        {isLoggedIn && <Route path="/nuevo-vendehumo" element={<NuevoVendehumo />} />}
         <Route path="/vendehumos/:vendehumoId" element={<InfoVendehumo />} />
         <Route path="/" element={<Navigate to="/vendehumos" />} />
       </Routes>

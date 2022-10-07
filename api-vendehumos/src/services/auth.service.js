@@ -1,5 +1,7 @@
 const uuid4 = require('uuid').v4
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const config = require('../../config')
 const InvalidCredentialsError = require('../errors/invalid-credentials.error')
 
 class AuthService {
@@ -17,8 +19,10 @@ class AuthService {
       throw new InvalidCredentialsError()
     }
 
-    const { password: _, ...usuarioSinPassword } = usuario
-    return usuarioSinPassword
+    const { password: _, _id, ...usuarioSinPassword } = usuario
+    const token = await jwt.sign({ ...usuarioSinPassword, id: _id }, config.SESSION_SECRET)
+
+    return token
   }
 
   async register(newUsuario) {
